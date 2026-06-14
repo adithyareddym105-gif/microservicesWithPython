@@ -49,8 +49,8 @@ async def create_activity(data: ActivityCreate, db: Session = Depends(get_db)):
 
     publish_notification({
         "user_id": activity.user_id,
+        "message": f"User {activity.user_id} performed action: {activity.action}",
         "game_id": activity.game_id,
-        "action": activity.action,
         "activity_id": activity.id
     })
 
